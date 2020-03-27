@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>map的应用</title>
+<script src="../lib/ol_v6.2.1.js"></script>
+<link rel="stylesheet" href="../lib/ol_v6.2.1.css">
+<style>
+    @import url(../common/common.css);
+</style>
+<script>
+    window.onload = function () {
+        // 地图   ----------- 详情查看API文档  注意类继承的关系
+        let map = new ol.Map({
+            target: 'map',
+            // 图层
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            // 视图 相机
+            view: new ol.View({
+                center: [106.3, 37.3],
+                zoom: 4 
+            }),
+            // 控件
+            controls: ol.control.defaults({
+                attribution: false,
+                zoom: false,
+                tipLabel: '12313',
+                label: 'bb',
+                rotate: false,
+            })
+        })
+    }
+</script>
+</head>
+<body>
+    <div id="map">
+
+    </div>
+</body>
+</html>
