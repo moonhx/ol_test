@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>地图的联动</title>
+<style>
+@import url(../lib/ol_v6.2.1.css);
+@import url(../common/common.css);
+#map1, #map2 {
+    height: 500px;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+</style>
+<script src="../lib/ol_v6.2.1.js"></script>
+<script>
+window.onload = function () {
+    let view = new ol.View({
+        center: [0,0],
+        zoom: 4
+    })
+    let map1 = new ol.Map({
+        target: 'map1',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: view
+    });
+    let map2 = new ol.Map({
+        target: 'map2',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: view
+    })
+}
+</script>
+</head>
+<body>
+    <div id="map1"></div>
+    <div id="map2"></div>
+    
+</body>
+</html>

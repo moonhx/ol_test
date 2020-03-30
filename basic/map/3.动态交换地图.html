@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>3.动态交换地图</title>
+<style>
+    @import url(../lib/ol_v6.2.1.css);
+    @import url(../common/common.css);
+    #map1, #map2 {
+        height: 400px;
+        width: 1000px;
+        border: 2px solid #ccc;
+        margin-bottom: 10px;
+    }
+</style>
+<script src="../lib/ol_v6.2.1.js"></script>
+<script src="../common/common.js"></script>
+<script>
+let map1, map2;
+function swapMap () {
+    map1.setTarget('map2');
+    map2.setTarget('map1');
+}
+window.onload = function () {
+    map1 = getMap('map1');
+    map2 = getMap('map2');
+}
+</script>
+</head>
+<body>
+    <input type="button" onclick="swapMap()" value="交换地图" />
+    <br>
+    <br>
+    <div id="map1"></div>
+    <div id="map2"></div>
+</body>
+</html>
